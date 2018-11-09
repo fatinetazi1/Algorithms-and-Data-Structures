@@ -1,0 +1,25 @@
+GA_ACP(Node n[], int n):
+  Node newSet[]; // The solution set
+  if newSet[0] == NULL: // The if statement is true only the first time
+    newSet[0] = n[0] 
+    for i = 0 to n: // Looks for the largest start time
+      if(n[i].start > newSet[0].start):
+        newSet[0] = n[i]
+    n.remove(newSet[0]) // Remove node of largest start time from the initial list
+    n-- // Decrease size by 1
+  else: 
+    current = 0 // Current index of newSet
+    temp = newSet[current] 
+    for i = 0 to n: // Ensures it goes through the entire array
+      for i = 1 to n: 
+        if (n[i].start > temp.start): // Looks for the largest start time again
+          temp = n[i]
+      for i = 0 to n: 
+        if(temp == n[i] && n[i].finish < newSet[current].start): // Ensures the largest start time doesn't
+          current++                                              // collide with any other activity
+          newSet[current] = n[i] // Adding it to newSet          
+          n.remove(n[i]) 
+          n--
+        else: // Else, it collides and should be removed anyways 
+          n.remove(n[i])
+          n--

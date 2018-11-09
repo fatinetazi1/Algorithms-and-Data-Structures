@@ -1,0 +1,21 @@
+Activity Selection Problem
+
+	|0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |T
+
+a1	|s |  |  |  |  |f |  |  |  |  |5 
+
+a2	|  |  |  |  |s |  |  |f |  |  |2
+
+a3  |  |  |  |  |  |  |  |s |  |f |2
+
+Greedy algorithm solution: a1, a3
+Optimal solution: a2, a3
+
+A greedy algorithm will simply look at
+the soonest finish time and select the
+activity with that finish time as the
+activity with the shortest duration (a1, a3).
+In reality, the optimal solution would 
+be the activity with the shortest distance
+from the starting time to the finishing
+time (a2, a3).
